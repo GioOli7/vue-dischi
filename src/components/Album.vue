@@ -30,9 +30,9 @@
 		min-width: 200px;
 		max-width: 230px;
 		padding: 25px;
-		background-color: #2e3a46;
+		background-color: $light-blue;
 		.poster {
-			height: 180px;
+			height: 170px;
 			// impostando la width, la differenza della dimensione delle img creva un fastidioso disallineamento sui titoli
 		}
 		.title {

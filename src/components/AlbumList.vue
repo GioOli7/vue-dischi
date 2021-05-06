@@ -1,6 +1,14 @@
 <template>
-	<div class="album-list">
-		<Album v-for="(album, index) in albums" :key="index" :details="album" />
+	<div class="content">
+		<div class="container">
+			<div class="album-list">
+				<Album
+					v-for="(album, index) in albums"
+					:key="index"
+					:details="album"
+				/>
+			</div>
+		</div>
 	</div>
 </template>
 
@@ -41,12 +49,15 @@
 </script>
 
 <style scoped lang="scss">
+	.content {
+		background-color: #1d2d3c;
+	}
+
 	.album-list {
 		padding-top: 50px;
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
 		gap: 30px;
-		background-color: #1d2d3c;
 	}
 </style>
