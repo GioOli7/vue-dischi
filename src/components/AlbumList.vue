@@ -62,5 +62,6 @@
 	.loading-logo {
 		max-width: 40%;
 		opacity: 0.3;
+		padding-top: 100px;
 	}
 </style>
