@@ -2,11 +2,7 @@
 	<div class="content">
 		<div class="container">
 			<div class="album-list" v-if="loaded">
-				<Album
-					v-for="(album, index) in albums"
-					:key="index"
-					:details="album"
-				/>
+				<Album v-for="(album, index) in albums" :key="index" :details="album" />
 			</div>
 			<img v-else class="loading-logo" src="@/assets/logo.png" alt="" />
 		</div>
@@ -36,35 +32,27 @@
 			// my methods
 			getAlbums() {
 				axios
-					.get(
-						'https://flynn.boolean.careers/exercises/api/array/music'
-					)
-					.then((result) => {
+					.get('https://flynn.boolean.careers/exercises/api/array/music')
+					.then(result => {
 						this.albums = result.data.response;
 						this.loaded = true;
 					})
-					.catch((error) => {
-						console.log(error);
-					});
+					.catch(error => console.log(error));
 			},
 		},
 	};
 </script>
 
 <style scoped lang="scss">
-	.content {
-		background-color: #1d2d3c;
-	}
-
 	.container {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		height: 95vh;
 	}
 
 	.album-list {
 		padding-top: 50px;
+		padding-bottom: 20px;
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;

@@ -19,10 +19,16 @@
 </script>
 
 <style lang="scss">
+	@import '@/styles/vars.scss';
+
 	* {
 		margin: 0;
 		padding: 0;
 		box-sizing: border-box;
+	}
+
+	body {
+		background-color: #1d2d3c;
 	}
 
 	.container {
