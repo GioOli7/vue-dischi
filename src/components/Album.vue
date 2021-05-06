@@ -2,13 +2,13 @@
 	<div class="album">
 		<img class="poster" :src="details.poster" alt="" />
 		<!-- titolo -->
-		<h3>{{ details.title }}</h3>
+		<h2 class="title">{{ details.title }}</h2>
 		<!-- autore -->
-		<span>{{ details.author }}</span>
+		<h3 class="author">{{ details.author }}</h3>
 		<!-- anno -->
-		<span>{{ details.year }}</span>
+		<span class="year">{{ details.year }}</span>
 		<!-- genere -->
-		<span>{{ details.genre }}</span>
+		<span class="genre">{{ details.genre }}</span>
 	</div>
 </template>
 
@@ -20,20 +20,38 @@
 </script>
 
 <style scoped lang="scss">
+	@import '@/styles/vars.scss';
+
 	.album {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		padding: 20px;
+		width: calc(100% / 6 - 25px);
+		min-width: 200px;
+		max-width: 230px;
+		padding: 25px;
 		background-color: #2e3a46;
-	}
-
-	.poster {
-		width: 150px;
-		height: 150px;
-	}
-
-	span {
-		display: block;
+		.poster {
+			height: 180px;
+			// impostando la width, la differenza della dimensione delle img creva un fastidioso disallineamento sui titoli
+		}
+		.title {
+			color: $primary-text-color;
+			text-transform: uppercase;
+			margin: 15px 0;
+			font-size: 22px;
+			text-align: center;
+		}
+		.year,
+		.author {
+			color: $secondary-text-color;
+			margin: 7px 0;
+		}
+		.genre {
+			color: $primary-text-color;
+		}
+		span {
+			display: block;
+		}
 	}
 </style>

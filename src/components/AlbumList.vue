@@ -42,7 +42,11 @@
 
 <style scoped lang="scss">
 	.album-list {
+		padding-top: 50px;
 		display: flex;
 		flex-wrap: wrap;
+		justify-content: center;
+		gap: 30px;
+		background-color: #1d2d3c;
 	}
 </style>
