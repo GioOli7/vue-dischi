@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="album-list">
 		<Album v-for="(album, index) in albums" :key="index" :details="album" />
 	</div>
 </template>
@@ -40,4 +40,9 @@
 	};
 </script>
 
-<style></style>
+<style scoped lang="scss">
+	.album-list {
+		display: flex;
+		flex-wrap: wrap;
+	}
+</style>
