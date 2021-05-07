@@ -37,7 +37,10 @@
 					.get('https://flynn.boolean.careers/exercises/api/array/music')
 					.then(result => {
 						this.albums = result.data.response;
-						this.loaded = true;
+						// timeout per simulare un caricamento più lungo, solo a scopo ludico
+						setTimeout(() => {
+							this.loaded = true;
+						}, 750);
 					})
 					.catch(error => console.log(error));
 			},
