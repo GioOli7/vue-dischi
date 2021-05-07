@@ -62,7 +62,7 @@
 						// timeout per simulare un caricamento più lungo, solo a scopo ludico
 						setTimeout(() => {
 							this.loaded = true;
-						}, 150);
+						}, 550);
 						this.getGenres();
 					})
 					.catch(error => console.log(error));
