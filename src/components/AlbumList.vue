@@ -2,7 +2,9 @@
 	<div class="content">
 		<div class="container">
 			<div class="album-list" v-if="loaded">
-				<Album v-for="(album, index) in albums" :key="index" :details="album" />
+				<div class="album" v-for="(album, index) in albums" :key="index">
+					<Album :details="album" />
+				</div>
 			</div>
 			<img v-else class="loading-logo rotate-vert-center" src="@/assets/logo.png" alt="" />
 		</div>
@@ -44,6 +46,8 @@
 </script>
 
 <style scoped lang="scss">
+	@import '@/styles/vars.scss';
+
 	.container {
 		display: flex;
 		justify-content: center;
@@ -57,6 +61,17 @@
 		flex-wrap: wrap;
 		justify-content: center;
 		gap: 30px;
+	}
+
+	.album {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: calc(100% / 6 - 25px);
+		min-width: 200px;
+		max-width: 230px;
+		padding: 25px;
+		background-color: $light-blue;
 	}
 
 	.loading-logo {

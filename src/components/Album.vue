@@ -1,5 +1,5 @@
 <template>
-	<div class="album">
+	<div class="content">
 		<img class="poster" :src="details.poster" alt="" />
 		<!-- titolo -->
 		<h2 class="title">{{ details.title }}</h2>
@@ -22,15 +22,9 @@
 <style scoped lang="scss">
 	@import '@/styles/vars.scss';
 
-	.album {
+	.content {
 		display: flex;
 		flex-direction: column;
-		align-items: center;
-		width: calc(100% / 6 - 25px);
-		min-width: 200px;
-		max-width: 230px;
-		padding: 25px;
-		background-color: $light-blue;
 		.poster {
 			height: 170px;
 			// impostando la width, la differenza della dimensione delle img creva un fastidioso disallineamento sui titoli
@@ -46,9 +40,11 @@
 		.author {
 			color: $secondary-text-color;
 			margin: 7px 0;
+			text-align: center;
 		}
 		.genre {
 			color: $primary-text-color;
+			text-align: center;
 		}
 		span {
 			display: block;
