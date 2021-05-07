@@ -31,7 +31,6 @@
 			return {
 				// my data
 				albums: [],
-				// albumsFilteredByGenre: [],
 				loaded: false,
 				selected: 'all',
 			};
@@ -69,13 +68,6 @@
 
 			selecGenre(value) {
 				this.selected = value;
-				// this.albumsFilteredByGenre = this.albums.filter(element => {
-				// 	if (value.toLowerCase() !== 'all') {
-				// 		return element.genre.toLowerCase() === value.toLowerCase();
-				// 	}
-				// 	return element;
-				// });
-				// console.log(this.albumsFilteredByGenre);
 			},
 		},
 	};

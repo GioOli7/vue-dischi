@@ -27,7 +27,6 @@
 		flex-direction: column;
 		.poster {
 			height: 170px;
-			// impostando la width, la differenza della dimensione delle img creva un fastidioso disallineamento sui titoli
 		}
 		.title {
 			color: $primary-text-color;
