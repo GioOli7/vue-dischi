@@ -1,8 +1,13 @@
 <template>
 	<div class="content">
+		<!-- select -->
+		<div class="select">
+			<SelectGenre @selectGenre="selecGenre" />
+		</div>
+
 		<div class="container">
 			<div class="album-list" v-if="loaded">
-				<div class="album" v-for="(album, index) in albums" :key="index">
+				<div class="album" v-for="(album, index) in filteredAlbums" :key="index">
 					<Album :details="album" />
 				</div>
 			</div>
@@ -14,18 +19,35 @@
 <script>
 	import axios from 'axios';
 	import Album from '@/components/Album';
+	import SelectGenre from '@/components/SelectGenre';
 
 	export default {
 		name: 'AlbumList',
 		components: {
 			Album,
+			SelectGenre,
 		},
 		data() {
 			return {
 				// my data
 				albums: [],
+				// albumsFilteredByGenre: [],
 				loaded: false,
+				selected: 'all',
 			};
+		},
+		computed: {
+			filteredAlbums() {
+				if (this.selected === 'all') {
+					return this.albums;
+				}
+				return this.albums.filter(element => {
+					if (this.selected.toLowerCase() !== 'all') {
+						return element.genre.toLowerCase() === this.selected.toLowerCase();
+					}
+					return element;
+				});
+			},
 		},
 		created() {
 			this.getAlbums();
@@ -40,9 +62,20 @@
 						// timeout per simulare un caricamento più lungo, solo a scopo ludico
 						setTimeout(() => {
 							this.loaded = true;
-						}, 750);
+						}, 150);
 					})
 					.catch(error => console.log(error));
+			},
+
+			selecGenre(value) {
+				this.selected = value;
+				// this.albumsFilteredByGenre = this.albums.filter(element => {
+				// 	if (value.toLowerCase() !== 'all') {
+				// 		return element.genre.toLowerCase() === value.toLowerCase();
+				// 	}
+				// 	return element;
+				// });
+				// console.log(this.albumsFilteredByGenre);
 			},
 		},
 	};
@@ -57,8 +90,15 @@
 		align-items: center;
 	}
 
+	.select {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 40px;
+	}
+
 	.album-list {
-		padding-top: 50px;
+		// padding-top: 50px;
 		padding-bottom: 20px;
 		display: flex;
 		flex-wrap: wrap;
