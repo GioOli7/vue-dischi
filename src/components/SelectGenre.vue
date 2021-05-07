@@ -1,7 +1,7 @@
 <template>
 	<select name="selectGenre" id="selectGenre">
 		<option
-			v-for="(value, index) in values"
+			v-for="(value, index) in genres"
 			:key="index"
 			@click="$emit('selectGenre', value)"
 			:value="value"
@@ -13,9 +13,10 @@
 <script>
 	export default {
 		name: 'SelectGenre',
+		props: ['genres'],
 		data() {
 			return {
-				values: ['all', 'rock', 'pop', 'jazz', 'metal'],
+				// values: ['all', 'rock', 'pop', 'jazz', 'metal'],
 			};
 		},
 	};

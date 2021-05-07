@@ -2,7 +2,7 @@
 	<div class="content">
 		<!-- select -->
 		<div class="select">
-			<SelectGenre @selectGenre="selecGenre" />
+			<SelectGenre @selectGenre="selecGenre" :genres="genres" />
 		</div>
 
 		<div class="container">
@@ -31,6 +31,7 @@
 			return {
 				// my data
 				albums: [],
+				genres: [],
 				loaded: false,
 				selected: 'all',
 			};
@@ -62,12 +63,24 @@
 						setTimeout(() => {
 							this.loaded = true;
 						}, 150);
+						this.getGenres();
 					})
 					.catch(error => console.log(error));
 			},
 
 			selecGenre(value) {
 				this.selected = value;
+			},
+
+			getGenres() {
+				this.genres = ['all'];
+				// console.log(this.albums);
+				this.albums.forEach(element => {
+					if (!this.genres.includes(element.genre)) {
+						this.genres.push(element.genre);
+					}
+				});
+				console.log(this.genres);
 			},
 		},
 	};
