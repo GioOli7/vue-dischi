@@ -1,13 +1,15 @@
 <template>
-	<select name="selectGenre" id="selectGenre">
-		<option
-			v-for="(value, index) in genres"
-			:key="index"
-			@click="$emit('selectGenre', value)"
-			:value="value"
-			>{{ value }}</option
+	<div class="select">
+		<label>Filter by genre</label>
+		<select
+			name="selectGenre"
+			id="selectGenre"
+			v-model="value"
+			@change="$emit('selectGenre', value)"
 		>
-	</select>
+			<option v-for="(value, index) in genres" :key="index" :value="value">{{ value }}</option>
+		</select>
+	</div>
 </template>
 
 <script>
@@ -16,7 +18,7 @@
 		props: ['genres'],
 		data() {
 			return {
-				// values: ['all', 'rock', 'pop', 'jazz', 'metal'],
+				value: 'all',
 			};
 		},
 	};
@@ -24,6 +26,11 @@
 
 <style scoped lang="scss">
 	@import '@/styles/vars.scss';
+
+	label {
+		color: white;
+		margin-right: 10px;
+	}
 
 	select {
 		background-color: #2e3a46;
